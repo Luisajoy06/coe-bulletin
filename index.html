@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>COE Bulletin Board</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- GOOGLE-STYLE PROFILE FLOATING AT TOP -->
+  <div class="profile-container">
+      <img id="profileAvatar" class="profile-avatar" <img src="./default-avatar.png">
+
+      <div id="profileMenu" class="profile-menu">
+        <div class="profile-info">
+          <img id="menuAvatar" class="menu-avatar" <img src="./default-avatar.png">
+          <div class="profile-text">
+            <p id="menuName" class="menu-name">User</p>
+            <p id="menuEmail" class="menu-email">email@example.com</p>
+          </div>
+        </div>
+
+        <a id="manageAccountLink" class="manage-link" 
+           href="https://myaccount.google.com" target="_blank" rel="noopener">
+          Manage your Google Account
+        </a>
+
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+      </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-container">
+      <img src="ESSU_Logo_New_protected_1959_50.png" alt="Left Logo" class="logo left-logo">
+      <img src="engineering9_n.jpg" alt="Right Logo" class="logo right-logo">
+      <h1>COE Bulletin Board</h1>
+    </div>
+
+    <nav id="nav-menu">
+      <a href="#announcements">Announcements</a>
+      <a href="#events">Events</a>
+      <a href="#academic-updates">Academic Updates</a>
+      <a href="#achievements">Student Achievements</a>
+      <a href="#" id="btn-about">About Us</a>
+      <a href="#" id="btn-contact">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- ABOUT PANEL -->
+  <div id="about-panel" class="top-panel">
+    <h2>About Us</h2>
+    <p>
+      The College of Engineering at ESSU is committed to excellence in
+      education, research, and service — preparing students for
+      successful careers and leadership in the engineering field.
+    </p>
+  </div>
+
+  <!-- CONTACT PANEL -->
+  <div id="contact-panel" class="top-panel">
+    <h2>Contact Us</h2>
+    <p>Email: engineering@essu.edu.ph</p>
+    <p>Phone: (042) 123-4567</p>
+    <p>Address: ESSU Main Campus, Borongan City</p>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div id="content">
+
+      <section id="announcements">
+        <div class="section-header">
+          <h2>📢 Announcements</h2>
+          <button id="open-post-btn" class="btn-new">➕ New Announcement</button>
+        </div>
+        <div id="dynamic-posts" class="grid-3"></div>
+      </section>
+
+      <section id="events">
+        <div class="section-header">
+          <h2>🎉 Events</h2>
+          <button id="open-event-btn" class="btn-new">➕ New Event</button>
+        </div>
+        <div id="dynamic-events" class="grid-2"></div>
+      </section>
+
+      <section id="academic-updates">
+        <div class="section-header">
+          <h2>📚 Academic Updates</h2>
+          <button id="open-update-btn" class="btn-new">➕ New Update</button>
+        </div>
+        <div id="dynamic-updates" class="grid-1"></div>
+      </section>
+
+      <section id="achievements">
+        <div class="section-header">
+          <h2>🏆 Student Achievements</h2>
+          <button id="open-achievement-btn" class="btn-new">➕ New Achievement</button>
+        </div>
+        <div id="dynamic-achievements" class="grid-2"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ANNOUNCEMENT MODAL -->
+  <div id="post-modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="close-modal" class="close">&times;</span>
+      <h2>Create New Announcement</h2>
+
+      <form id="modal-post-form">
+        <label>Title:</label>
+        <input type="text" id="modal-post-title" required />
+
+        <label>Message:</label>
+        <textarea id="modal-post-message" rows="4" required></textarea>
+
+        <label>Attach Image:</label>
+        <input type="file" id="modal-post-image" accept="image/*" />
+
+        <button type="submit">Publish</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- EVENT MODAL -->
+  <div id="event-modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="close-event-modal" class="close">&times;</span>
+      <h2>Create New Event</h2>
+
+      <form id="modal-event-form">
+        <label>Title:</label>
+        <input type="text" id="event-title" required />
+
+        <label>Date:</label>
+        <input type="date" id="event-date" required />
+
+        <label>Location:</label>
+        <input type="text" id="event-location" required />
+
+        <label>Description:</label>
+        <textarea id="event-desc" rows="3" required></textarea>
+
+        <label>Image:</label>
+        <input type="file" id="event-image" accept="image/*" />
+
+        <button type="submit">Publish</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- UPDATE MODAL -->
+  <div id="update-modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="close-update-modal" class="close">&times;</span>
+      <h2>New Academic Update</h2>
+
+      <form id="modal-update-form">
+        <label>Message:</label>
+        <textarea id="update-message" rows="4" required></textarea>
+
+        <label>Image:</label>
+        <input type="file" id="update-image" accept="image/*" />
+
+        <button type="submit">Publish</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ACHIEVEMENT MODAL -->
+  <div id="achievement-modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="close-achievement-modal" class="close">&times;</span>
+      <h2>New Achievement</h2>
+
+      <form id="modal-achievement-form">
+        <label>Name:</label>
+        <input type="text" id="achiever-name" required />
+
+        <label>Achievement:</label>
+        <textarea id="achiever-desc" rows="3" required></textarea>
+
+        <label>Photo:</label>
+        <input type="file" id="achiever-image" accept="image/*" />
+
+        <button type="submit">Publish</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" />
+  </div>
+
+  <!-- FIREBASE SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+  <!-- ⭐ REQUIRED FOR PUBLISH + SAVE + DELETE -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDCHE1ZNcFDatmha2kLqEGgwcxGc51KkFY",
+      authDomain: "coe-bulletin.firebaseapp.com",
+      databaseURL: "https://coe-bulletin-default-rtdb.firebaseio.com",
+      projectId: "coe-bulletin",
+      storageBucket: "coe-bulletin.appspot.com",
+      messagingSenderId: "185761844906",
+      appId: "1:185761844906:web:2289ffaa70e64e13ce0ad3",
+      measurementId: "G-PZMSXXJKCL"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    window.auth = firebase.auth();
+    window.db = firebase.database();  // ⭐ THIS MAKES PUBLISH WORK
+  </script>
+
+  <script src="./script.js"></script>
+
+</body>
+</html>

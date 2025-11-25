@@ -1,0 +1,119 @@
+/* ===== General Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #004080, #0066cc);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Container ===== */
+.container {
+  background: #fff;
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== Logo Wrapper ===== */
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+/* Logos */
+.logo {
+  width: 60px;
+  height: auto;
+  display: block;
+}
+
+/* ===== Forms ===== */
+.form {
+  display: none;
+  flex-direction: column;
+}
+
+.form.active {
+  display: flex;
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #004080;
+}
+
+input {
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.btn {
+  margin-top: 12px;
+  padding: 12px;
+  background: #004080;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #003060;
+}
+
+/* Switch between Login / Signup */
+.switch {
+  margin-top: 18px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.switch a {
+  color: #004080;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.switch a:hover {
+  text-decoration: underline;
+}
+
+/* Message */
+.message {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: #d10000;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .container {
+    padding: 30px;
+    max-width: 90%;
+  }
+
+  .logo {
+    width: 50px;
+  }
+}

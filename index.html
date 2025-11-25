@@ -10,10 +10,10 @@
 
   <!-- GOOGLE-STYLE PROFILE FLOATING AT TOP -->
   <div class="profile-container">
-      <img id="profileAvatar" class="profile-avatar" src="default-avatar.png">
+      <img id="profileAvatar" class="profile-avatar" src="https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=User">
       <div id="profileMenu" class="profile-menu">
         <div class="profile-info">
-          <img id="menuAvatar" class="menu-avatar" src="default-avatar.png">
+          <img id="menuAvatar" class="menu-avatar" src="https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=User">
           <div class="profile-text">
             <p id="menuName" class="menu-name">User</p>
             <p id="menuEmail" class="menu-email">email@example.com</p>
@@ -197,37 +197,34 @@
     <img id="lightbox-img" class="lightbox-content" />
   </div>
 
-  <!-- FIREBASE SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+ <!-- FIREBASE SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
 
-  <!-- FIREBASE CONFIG -->
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyDCHE1ZNcFDatmha2kLqEGgwcxGc51KkFY",
-      authDomain: "coe-bulletin.firebaseapp.com",
-      databaseURL: "https://coe-bulletin-default-rtdb.firebaseio.com",
-      projectId: "coe-bulletin",
-      storageBucket: "coe-bulletin.appspot.com",
-      messagingSenderId: "185761844906",
-      appId: "1:185761844906:web:2289ffaa70e64e13ce0ad3",
-      measurementId: "G-PZMSXXJKCL"
-    };
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCHE1ZNcFDatmha2kLqEGgwcxGc51KkFY",
+    authDomain: "coe-bulletin.firebaseapp.com",
+    databaseURL: "https://coe-bulletin-default-rtdb.firebaseio.com",
+    projectId: "coe-bulletin",
+    storageBucket: "coe-bulletin.appspot.com",
+    messagingSenderId: "185761844906",
+    appId: "1:185761844906:web:2289ffaa70e64e13ce0ad3",
+    measurementId: "G-PZMSXXJKCL"
+  };
 
-    firebase.initializeApp(firebaseConfig);
-    window.auth = firebase.auth();
-    window.db = firebase.database();
-  </script>
+  firebase.initializeApp(firebaseConfig);
+  window.auth = firebase.auth();
+  window.db = firebase.database();
 
-  <!-- LOGIN REDIRECT (must be after Firebase init) -->
-  <script>
-    firebase.auth().onAuthStateChanged(user => {
-      if (!user) {
-        window.location.href = "login.html";
-      }
-    });
-  </script>
+  // ⭐ LOGIN REDIRECT — THIS MUST BE AFTER FIREBASE IS LOADED
+  firebase.auth().onAuthStateChanged(user => {
+    if (!user) {
+      window.location.href = "login.html";
+    }
+  });
+</script>
 
   <!-- MAIN SCRIPT -->
   <script src="./script.js"></script>

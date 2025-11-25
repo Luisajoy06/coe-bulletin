@@ -10,11 +10,10 @@
 
   <!-- GOOGLE-STYLE PROFILE FLOATING AT TOP -->
   <div class="profile-container">
-      <img id="profileAvatar" class="profile-avatar" <img src="./default-avatar.png">
-
+      <img id="profileAvatar" class="profile-avatar" src="default-avatar.png">
       <div id="profileMenu" class="profile-menu">
         <div class="profile-info">
-          <img id="menuAvatar" class="menu-avatar" <img src="./default-avatar.png">
+          <img id="menuAvatar" class="menu-avatar" src="default-avatar.png">
           <div class="profile-text">
             <p id="menuName" class="menu-name">User</p>
             <p id="menuEmail" class="menu-email">email@example.com</p>
@@ -201,10 +200,9 @@
   <!-- FIREBASE SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-
-  <!-- ⭐ REQUIRED FOR PUBLISH + SAVE + DELETE -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
 
+  <!-- FIREBASE CONFIG -->
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyDCHE1ZNcFDatmha2kLqEGgwcxGc51KkFY",
@@ -219,9 +217,19 @@
 
     firebase.initializeApp(firebaseConfig);
     window.auth = firebase.auth();
-    window.db = firebase.database();  // ⭐ THIS MAKES PUBLISH WORK
+    window.db = firebase.database();
   </script>
 
+  <!-- LOGIN REDIRECT (must be after Firebase init) -->
+  <script>
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+
+  <!-- MAIN SCRIPT -->
   <script src="./script.js"></script>
 
 </body>
